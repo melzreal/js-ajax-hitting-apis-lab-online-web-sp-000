@@ -28,9 +28,9 @@ function displayRepositories() {
 
 function getCommits(el) {
   const request = new XMLHttpRequest;
-  let url = 'https://api.github.com/repos/' + repo.dataset.username + '/' + repo.dataset.repository + '/commits'
-  console.log(repo.dataset.username)
-  console.log(repo.dataset.repository)
+  let url = 'https://api.github.com/repos/' + el.dataset.username + '/' + el.dataset.repository + '/commits'
+  console.log(el.dataset.username)
+  console.log(el.dataset.repository)
   console.log(url);
   request.addEventListener('load', displayCommits);
   request.open('GET', url);
