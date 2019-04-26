@@ -27,6 +27,7 @@ function displayRepositories() {
 }
 
 function getCommits(el) {
+  const userData = el.dataset.username;
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   let userData = document.querySelector('#username').value;
