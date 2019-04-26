@@ -27,13 +27,14 @@ function displayRepositories() {
 }
 
 function getCommits(el) {
-  const name = el.dataset.repo;
-  
-  const req = new XMLHttpRequest();
-  let userData = document.querySelector('#username').value;
-  req.addEventListener('load', displayCommits);
-  req.open('GET', `https://api.github.com/repos/${userData}/${name}/commits`);
-  req.send();
+  const request = new XMLHttpRequest;
+  let url = 'https://api.github.com/repos/' + repo.dataset.username + '/' + repo.dataset.repository + '/commits'
+  console.log(repo.dataset.username)
+  console.log(repo.dataset.repository)
+  console.log(url);
+  request.addEventListener('load', displayCommits);
+  request.open('GET', url);
+  request.send();
 }
 
 function displayCommits() {
