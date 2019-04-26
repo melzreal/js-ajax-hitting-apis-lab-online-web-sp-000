@@ -14,7 +14,9 @@ function displayRepositories() {
   var repos = JSON.parse(this.responseText);
 
   const repoList = `<ul> ${repos.map(
-    repo => '<li>' + 
+    repo => '<li>' + '<a href="' +
+     repo.html_url +
+      '">' +
        repo.name +
   '</a> <a href="#" data-username="'+
    repo.owner.login +
