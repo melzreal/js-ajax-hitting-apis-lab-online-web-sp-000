@@ -30,7 +30,7 @@ function getCommits(el) {
   const request = new XMLHttpRequest;
   let uri = `https://api.github.com/repos/${el.dataset.username}/${el.dataset.repository}/commits`;
   request.addEventListener('load', displayCommits);
-  request.open('GET', url);
+  request.open('GET', uri);
   request.send();
 }
 
