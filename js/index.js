@@ -16,8 +16,7 @@ function displayRepositories() {
     .map(
       r =>
         '/' +
-        r.author.name +
-        ' - <a href="#" data-repo="' +
+        r.author.login
 
     )
     .join('')}</ul>`;
