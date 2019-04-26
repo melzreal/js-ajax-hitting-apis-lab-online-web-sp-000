@@ -15,9 +15,11 @@ function displayRepositories() {
   const repoList = `<ul>${repos
     .map(
       r =>
-        '/' +
-        r.author.login
-
+        '<li>' +
+        r.name +
+        ' - <a href="#" data-repo="' +
+        r.name +
+        '" onclick="getCommits(this)">Get Commits</a></li>'
     )
     .join('')}</ul>`;
   document.getElementById('repositories').innerHTML = repoList;
@@ -50,13 +52,14 @@ function displayCommits() {
 }
 
 function getBranches(el) {
-  const repoName = el.dataset.repository;
-  const uri = 'https://api.github.com/repos/' + el.dataset.username + '/' + repoName + '/branches';
-  const xhr = new XMLHttpRequest();
-  xhr.addEventListener('load', displayBranches);
-  xhr.open('GET', uri);
-  xhr.send();
+  const name =  el.dataset.repo;
+  const userData = el.dataset.username;
+  const req = new XMLHttpRequest();
+  req.addEventListener('load', displayBranches);
+  req.open('GET', `https://api.github.com/repos/${userData}/${name}/branches`);
+  req.send();
 }
+
 function displayBranches() {
   const branches = JSON.parse(this.responseText);
   const branchesList = `<ul>${branches
