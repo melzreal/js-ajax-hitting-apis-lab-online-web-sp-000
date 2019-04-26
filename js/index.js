@@ -43,7 +43,7 @@ function displayCommits() {
         commit.author.login +
         '</strong> - ' +
         commit.commit.message +
-        commit.commit.name +
+        commit.author.name +
         '</li>'
     )
     .join('')}</ul>`;
