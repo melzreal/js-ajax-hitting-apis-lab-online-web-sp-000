@@ -39,10 +39,10 @@ function displayCommits() {
   const commitsList = `<ul>${commits
     .map(
       commit =>
-        '<li>' +
+        '<li> ' +
         commit.author.login +
         commit.commit.message +
-      
+
                 '</li>'
     )
     .join('')}</ul>`;
